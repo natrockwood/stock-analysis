@@ -252,3 +252,33 @@ End Sub
 ```
 ## Conclusion
 After the full analysis, the best stock to invest in is RUN, which gives a return of 84%. This is the stock that Peter should look into for his parents to continue to invest in.
+### Formatting
+#### Adding Standard Formatting
+To make the output prettier, we include specific formats for the borders and text. \
+You need to activate the worksheet you'll be formatting, and selecting the specific ranges you will edit.
+```vba
+Worksheets("All Stocks Analysis").Activate
+Range("A3:C3").Font.Bold = True
+Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous
+Range("B4:B15").NumberFormat = "#,##0"
+Range("C4:C15").NumberFormat = "0.0%"
+Columns("B").AutoFit
+```
+#### Adding Conditional Formatting
+Yay, more FOR loops! Like Conditional Formatting in Excel, you can use for Loops and If Then Conditional statements to format the dataset.
+```vba
+dataRowStart = 4
+dataRowEnd = 15
+	For i = dataRowStart To dataRowEnd
+		If Cells(i, 3) > 0 Then
+		    'Color the cell green
+		    Cells(i, 3).Interior.Color = vbGreen
+		ElseIf Cells(i, 3) < 0 Then
+		    'Color the cell red
+		    Cells(i, 3).Interior.Color = vbRed
+		Else
+		    'Clear the cell color
+		    Cells(i, 3).Interior.Color = xlNone
+		End If
+   	Next i
+    ```
