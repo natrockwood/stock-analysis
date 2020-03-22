@@ -281,4 +281,16 @@ dataRowEnd = 15
 		    Cells(i, 3).Interior.Color = xlNone
 		End If
    	Next i
-    ```
+```
+## Adding Buttons to Run Macros
+Adding in a button to run a Macros is very helpful if you need to run the sheet multiple times or need to refresh data. \
+The Developer Tab in Excel allows you to Insert a button, rename, and format to what you need to use. \
+You then assign the button to a Macros() that you used and ran already. \
+The "ClearWorksheet()" Macros was used to **clear** the whole sheet. This macros can be run on different sheets of the .xlsm file as long as the ClearWorksheet() Macros is assigned to that same button.
+```vba
+Sub ClearWorksheet()
+
+    Cells.Clear
+
+End Sub
+```
